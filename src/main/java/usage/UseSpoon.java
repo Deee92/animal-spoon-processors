@@ -2,6 +2,7 @@ package usage;
 
 import processors.MethodProcessor;
 import processors.PureMethodProcessor;
+import spoon.Launcher;
 import spoon.MavenLauncher;
 import spoon.reflect.CtModel;
 import spoon.reflect.declaration.CtPackage;
@@ -11,7 +12,7 @@ import spoon.support.compiler.SpoonPom;
 public class UseSpoon {
     public static void main(String[] args) {
         // APP_SOURCE / TEST_SOURCE / ALL_SOURCE
-        MavenLauncher launcher = new MavenLauncher("/home/user/IdeaProjects/spoon-dog", MavenLauncher.SOURCE_TYPE.APP_SOURCE);
+        MavenLauncher launcher = new MavenLauncher("/tmp/spoon-dog", MavenLauncher.SOURCE_TYPE.APP_SOURCE);
 
         SpoonPom spoonPom = launcher.getPomFile();
         // launcher.addProcessor("MethodProcessor");
@@ -36,5 +37,6 @@ public class UseSpoon {
 
         PureMethodProcessor pureMethodProcessor = new PureMethodProcessor();
         model.processWith(pureMethodProcessor);
+        launcher.prettyprint();
     }
 }
