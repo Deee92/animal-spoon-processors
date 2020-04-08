@@ -1,6 +1,7 @@
 package processors;
 
 import spoon.processing.AbstractProcessor;
+import spoon.refactoring.Refactoring;
 import spoon.reflect.declaration.CtClass;
 import spoon.reflect.declaration.CtMethod;
 
